@@ -6,6 +6,12 @@ Template.postItem.helpers({
   }
 });
 
+Template.postItem.events({
+  'click button': function() {
+    Posts.update(this._id, {$inc:{likes:1}});
+  }
+});
+
 Template.postItem.rendered = function() {
   return Holder.run();
 };
