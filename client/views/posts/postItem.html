@@ -1,7 +1,10 @@
 <template name="postItem">
   <div class="col-lg-3 col-sm-6 col-xs-12">
     <div class="thumbnail">
-      <img data-src="holder.js/100%x200/text:FPO" class="img-responsive"/>
+      <a href="{{pathFor 'postPage'}}"><img data-src="holder.js/100%x200/text:FPO" class="img-responsive"/></a>
+      <div class="post-author pull-right">
+        <a href="{{pathFor 'postsByAuthor'}}"><img data-src="holder.js/50x50/sky/text:{{author}}" class="img-circle"/></a>
+      </div>
       <div class="caption">
         <h4><a href="{{url}}">{{title}}</a> <small>{{domain}}</small></h4>
         <p>This is some additional caption text</p>
