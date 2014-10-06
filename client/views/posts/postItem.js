@@ -8,7 +8,11 @@ Template.postItem.helpers({
 
 Template.postItem.events({
   'click button': function() {
-    Posts.update(this._id, {$inc:{likes:1}});
+    if (!! Meteor.userId()) {
+      Posts.update(this._id, {$inc:{likes:1}});
+    } else {
+      console.log('Uh-oh! You must be logged in!');
+    }
   }
 });
 

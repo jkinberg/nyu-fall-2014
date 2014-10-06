@@ -12,4 +12,5 @@ iron:router
 accounts-password
 ian:accounts-ui-bootstrap-3
 accounts-facebook
+sacha:spin
 

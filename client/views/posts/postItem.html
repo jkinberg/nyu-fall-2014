@@ -6,9 +6,12 @@
         <a href="{{pathFor 'postsByAuthor'}}"><img data-src="holder.js/50x50/sky/text:{{author}}" class="img-circle"/></a>
       </div>
       <div class="caption">
-        <h4><a href="{{url}}">{{title}}</a> <small>{{domain}}</small></h4>
-        <p>This is some additional caption text</p>
-        <button type="button" class="btn btn-default btn-xs">Like</button>
+        <h4>
+          <a href="{{url}}">{{title}}</a><br/>
+          <small>{{domain}}</small>
+        </h4>
+        <p>{{description}}</p>
+        {{#if currentUser}}<button type="button" class="btn btn-default btn-xs">Like</button>{{/if}}
         {{#if likes}}<small>{{likes}} Likes</small>{{/if}}
       </div>
     </div>
