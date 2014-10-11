@@ -34,7 +34,7 @@ Meteor.methods({
     // grab the right fields, and add new fields such as: username, timestamp
     var post = _.extend(_.pick(postAttributes, 'url', 'title', 'description'), {
       userId: user._id,
-      author: user.username,
+      author: user.profile.name, // if using Facebook account, then username is not available. Use profile.name instead
       submitted: new Date().getTime()
     });
     
