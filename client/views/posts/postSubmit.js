@@ -8,10 +8,14 @@ Template.postSubmit.events({
       description: $(e.target).find('[name=post-description]').val()
     }
     
-    post._id = Posts.insert(post);
+    //post._id = Posts.insert(post);
     
-    Router.go('postPage', post)
-    
+    Meteor.call('post', post, function(error, id){
+      if (error)
+        return alert(error.reason);
+      
+      Router.go('postPage', {_id:id});
+      
+    });
   }
-  
 });
