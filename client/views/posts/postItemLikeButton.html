@@ -1,4 +1,6 @@
 <template name="likeButton">
-  {{#if currentUser}}<button type="button" class="btn btn-xs {{#if likeActive}}btn-primary{{else}}btn-default{{/if}}">Like</button>{{/if}}
+  {{#if currentUser}}
+    <button type="button" class="btn btn-xs {{likeActive}}">Like</button>
+  {{/if}}
   {{#if likeCount}}<small>{{likeCount}} Likes</small>{{/if}}
 </template>
