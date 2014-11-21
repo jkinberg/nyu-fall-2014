@@ -6,6 +6,9 @@ Template.postItem.helpers({
     var a = document.createElement('a');
     a.href = this.url;
     return a.hostname;
+  },
+  myImage: function(){
+    return Images.findOne({_id: this.imageId});
   }
 });
 

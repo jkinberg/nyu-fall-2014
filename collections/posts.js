@@ -11,7 +11,7 @@ Posts.allow({
 
 Posts.deny({
   update: function(userId, post, fieldNames){
-    return (_.without(fieldNames, 'title', 'url', 'description').length > 0)
+    return (_.without(fieldNames, 'title', 'url', 'description', 'imageId').length > 0)
   }
 });
 
@@ -38,7 +38,7 @@ Meteor.methods({
     }
     
     // grab the right fields, and add new fields such as: username, timestamp
-    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'description'), {
+    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'description', 'imageId'), {
       userId: user._id,
       author: user.profile.name, // if using Facebook account, then username is not available. Use profile.name instead
       submitted: new Date().getTime()
