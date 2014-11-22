@@ -1,19 +1,25 @@
 <template name="postItem">
   <div class="col-lg-3 col-sm-6 col-xs-12">
     <div class="thumbnail">
-      <a href="{{pathFor 'postPage'}}"><img data-src="holder.js/100%x200/text:FPO" class="img-responsive"/></a>
+      <a href="{{pathFor 'postPage'}}">
+        {{#if myImage.isUploaded}}
+        <img src="{{myImage.url store='images'}}" class="img-responsive" />
+        {{else}}
+        <img data-src="holder.js/100%x200/text:FPO" class="img-responsive"/>
+        {{/if}}
+      </a>
       <div class="post-author pull-right">
         <a href="{{pathFor 'postsByAuthor'}}"><img data-src="holder.js/50x50/sky/text:{{author}}" class="img-circle"/></a>
       </div>
-      {{#if ownPost}}
-        <div class="post-edit pull-right">
-          <a href="{{pathFor 'postEdit'}}" class="btn btn-default btn-xs">Edit</a>
-        </div>
-      {{/if}}
       <div class="caption">
         <h4><a href="{{url}}">{{title}}</a> <small>{{domain}}</small></h4>
         <p>{{description}}</p>
         {{> likeButton}}
+        {{#if ownPost}}
+          <div class="post-edit pull-right">
+            <a href="{{pathFor 'postEdit'}}" class="btn btn-warning btn-xs">Edit</a>
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>

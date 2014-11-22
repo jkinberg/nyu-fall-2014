@@ -37,8 +37,11 @@ Meteor.methods({
       throw new Meteor.Error(302, "This link has already been posted", duplicatePost._id);
     }
     
+    if (!postAttributes.imageId)
+      throw new Meteor.Error(422, "Uh-oh! You need to submit an image!");
+    
     // grab the right fields, and add new fields such as: username, timestamp
-    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'description'), {
+    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'description', 'imageId'), {
       userId: user._id,
       author: user.profile.name, // if using Facebook account, then username is not available. Use profile.name instead
       submitted: new Date().getTime()

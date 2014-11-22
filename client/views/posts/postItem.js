@@ -1,4 +1,7 @@
 Template.postItem.helpers({
+  myImage: function(){
+    return Images.findOne({_id: this.imageId});
+  },
   ownPost: function() {
     return this.userId === Meteor.userId();
   },
