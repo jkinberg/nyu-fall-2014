@@ -1,6 +1,21 @@
 <template name="postEdit">
   <h2>Edit Post</h2>
   <form role="form">
+    {{#if myImage.isUploaded}}
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+      <div class="thumbnail">
+        <img src="{{myImage.url store='images'}}" class="img-responsive" />
+        <div class="caption">
+          <a href="#" class="btn btn-danger delete-image">Delete Image</a>
+        </div>
+      </div>
+    </div>
+    {{else}}
+    <div class="form-group">
+      <label for="post-image">Image:</label>
+      <input type="file" name="post-image" />
+    </div>
+    {{/if}}
     <div class="form-group">
       <input type="text" class="form-control" name="post-title" placeholder="Title" value="{{title}}">
     </div>

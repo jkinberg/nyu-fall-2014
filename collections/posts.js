@@ -11,7 +11,7 @@ Posts.allow({
 
 Posts.deny({
   update: function(userId, post, fieldNames){
-    return (_.without(fieldNames, 'title', 'url', 'description').length > 0)
+    return (_.without(fieldNames, 'title', 'url', 'description', 'imageId').length > 0)
   }
 });
 
