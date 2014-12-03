@@ -8,9 +8,12 @@
         <img data-src="holder.js/100%x200/text:FPO" class="img-responsive"/>
         {{/if}}
       </a>
-      <div class="post-author pull-right">
-        <a href="{{pathFor 'postsByAuthor'}}"><img data-src="holder.js/50x50/sky/text:{{author}}" class="img-circle"/></a>
-      </div>
+      {{#if userId}}
+        <div class="post-author pull-right">
+          <!-- <img data-src="holder.js/50x50/sky/text:{{author}}" class="img-circle"/> -->
+          <a href="{{pathFor 'postsByAuthor'}}">{{> avatar userId=this.userId shape="circle" bgColor="#39DBAC"}}</a>
+        </div>
+      {{/if}}
       <div class="caption">
         <h4><a href="{{url}}">{{title}}</a> <small>{{domain}}</small></h4>
         <p>{{description}}</p>
