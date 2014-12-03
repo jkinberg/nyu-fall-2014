@@ -1,7 +1,7 @@
 var imageStore = new FS.Store.S3("images", {
   region: "us-east-1", //optional in most cases
-  // accessKeyId: "account or IAM key", //required if environment variables are not set
-  // secretAccessKey: "account or IAM secret", //required if environment variables are not set
+  // accessKeyId: AWS_ACCESS_KEY_ID, //required if environment variables are not set
+  // secretAccessKey: AWS_SECRET_ACCESS_KEY, //required if environment variables are not set
   bucket: "josh-nyu-fall-2014", //required
   folder: "/",
   ACL: "public-read", //optional, default is 'private', but you can allow public or secure access routed through your app URL
